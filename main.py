@@ -1,10 +1,6 @@
-from requests import get
-from requests.exceptions import RequestException
-from contextlib import closing
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import requests
 import webbrowser
 
 
@@ -32,13 +28,6 @@ def main():
         ip = pair[0]
         port = pair[1]
         proxy = str(ip) + ':' + str(port)
-        # proxies = {'http': 'http://' + proxy,
-        #            'https': 'https://' + proxy}
-        # try:
-        #     r = requests.get('http://www.google.com/', proxies=proxies, timeout=2)
-        #     print(proxy)
-        # except:
-        #     print("Connection error")
         print(proxy)
         file.write(proxy + '\n')
 
