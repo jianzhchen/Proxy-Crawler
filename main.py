@@ -6,6 +6,7 @@ import webbrowser
 
 def main():
     url = 'http://spys.one/free-proxy-list/CN/'
+    http_only = True
     outputfile = "output.txt"
     ip_port_list = []
 
@@ -13,7 +14,9 @@ def main():
     chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.get(url)
-    driver.find_element_by_css_selector("select#xpp > option[value='5']").click()
+    driver.find_element_by_css_selector("select#xpp > option[value='2']").click()
+    if http_only:
+        driver.find_element_by_css_selector("select#xf5 > option[value='1']").click()
     html = driver.page_source
     html = BeautifulSoup(html, 'html.parser')
     inner = html.select('body > table')[1].tbody
